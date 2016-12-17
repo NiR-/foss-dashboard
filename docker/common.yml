@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  nginx:
+    build: nginx
+    mem_limit: 128m
+    ports:
+      - "80:80"
+
+  redis:
+    build: redis
+    mem_limit: 128m

@@ -1,0 +1,9 @@
+.git/
+.idea/
+docker/
+docs/
+node_modules/
+services/repo-api/node_modules/
+.dockerignore
+.gitignore
+fig

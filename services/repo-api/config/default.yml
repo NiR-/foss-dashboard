@@ -1,0 +1,11 @@
+http_port: 8080
+
+redis:
+  host: localhost
+  port: 6379
+
+github:
+  timeout: 10000
+  user_agent: 'Local GitBot'
+  oauth_key: 
+  oauth_secret:

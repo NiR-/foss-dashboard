@@ -1,0 +1,45 @@
+{
+  "name": "repo-api",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "app": "./node_modules/.bin/babel-node bin/http.js",
+    "dev-app": "./node_modules/.bin/nodemon --exec npm run app",
+    "cli": "./node_modules/.bin/babel-node bin/cli.js"
+  },
+  "keywords": [],
+  "author": "Albin Kerouanton <albin.kerouanton@knplabs.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "commander": "^2.9.0",
+    "config": "^1.24.0",
+    "es6-error": "^4.0.0",
+    "express": "^4.14.0",
+    "github": "^7.0.1",
+    "halson": "^2.3.1",
+    "helmet": "^3.1.0",
+    "js-yaml": "^3.7.0",
+    "morgan": "^1.7.0",
+    "redis": "^2.6.3",
+    "tracer": "^0.8.7",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-export-extensions": "^6.8.0",
+    "babel-preset-es2015-node": "^6.1.1",
+    "babel-preset-es2017": "^6.16.0",
+    "nodemon": "^1.11.0"
+  },
+  "babel": {
+    "plugins": [
+      "transform-export-extensions"
+    ],
+    "presets": [
+      "es2017",
+      "es2015-node"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+http_port: HTTP_PORT
+
+redis:
+  host: REDIS_HOST
+  port: REDIS_PORT
+
+github:
+  timeout: GITHUB_TIMEOUT
+  user_agent: GITHUB_UA
+  oauth_key: GITHUB_KEY
+  oauth_secret: GITHUB_SECRET

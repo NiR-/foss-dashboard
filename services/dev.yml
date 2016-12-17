@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  repo-api:
+    extends: { file: ../services/common.yml, service: repo-api }
+    command: ["npm", "run", "dev-app"]
+    volumes:
+      - '../services/repo-api/:/usr/src/app'

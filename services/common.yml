@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+  repo-api:
+    build: repo-api
+    env_file: repo-api/.env
