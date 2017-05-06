@@ -1,0 +1,16 @@
+graceTimeOut = 10
+debug = true
+defaultEntryPoints = ["http"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "localhost"
+watch = true
+exposedbydefault = false
+
+[web]
+address = ":8080"

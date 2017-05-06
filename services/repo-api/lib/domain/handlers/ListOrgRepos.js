@@ -1,7 +1,7 @@
-import {RedisStore} from '../../services';
+import {MongoStore} from '../../services';
 
 export default function handle (command) {
   const {org} = command;
 
-  return RedisStore.listRepos(org);
+  return MongoStore.findRepos(org);
 }

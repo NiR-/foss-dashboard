@@ -4,13 +4,14 @@
   "description": "",
   "scripts": {
     "app": "./node_modules/.bin/babel-node bin/http.js",
-    "dev-app": "./node_modules/.bin/nodemon --exec npm run app",
-    "cli": "./node_modules/.bin/babel-node bin/cli.js"
+    "dev-app": "npm run fetch && ./node_modules/.bin/nodemon --exec npm run app",
+    "fetch": "./node_modules/.bin/babel-node bin/cli.js fetch KnpLabs"
   },
   "keywords": [],
   "author": "Albin Kerouanton <albin.kerouanton@knplabs.com>",
   "license": "MIT",
   "dependencies": {
+    "amqp": "^0.2.6",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "commander": "^2.9.0",
@@ -21,6 +22,8 @@
     "halson": "^2.3.1",
     "helmet": "^3.1.0",
     "js-yaml": "^3.7.0",
+    "limiter": "^1.1.0",
+    "mongodb": "^2.2.16",
     "morgan": "^1.7.0",
     "redis": "^2.6.3",
     "tracer": "^0.8.7",

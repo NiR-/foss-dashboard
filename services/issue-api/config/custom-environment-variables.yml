@@ -1,0 +1,22 @@
+http_port: HTTP_PORT
+consul_url: CONSUL_URL
+mongo_uri: MONGO_URI
+service_name: SERVICE_NAME
+
+redis:
+  host: REDIS_HOST
+  port: REDIS_PORT
+
+github:
+  timeout: GITHUB_TIMEOUT
+  user_agent: GITHUB_UA
+  oauth_key: GITHUB_KEY
+  oauth_secret: GITHUB_SECRET
+
+amqp:
+    host: AMQP_HOST
+    port: AMQP_PORT
+    login: AMQP_USER
+    password: AMQP_PASS
+    vhost: AMQP_VHOST
+    connectionTimeout: AMQP_TIMEOUT

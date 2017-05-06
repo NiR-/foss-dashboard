@@ -1,0 +1,53 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: nomad-daemon
+  resourceVersion: "0.1"
+spec:
+  selector:
+    matchLabels:
+      name: nomad-agent
+  template:
+    metadata:
+      labels:
+        name: nomad-agent
+    spec:
+      containers:
+        - name: nomad
+          image: djenriquez/nomad:v0.5.4
+          command: ["/usr/local/bin/start.sh"]
+          args: ["agent", "-dev"]
+          env:
+            - name: VAULT_TOKEN
+              value: root_token
+            - name: NOMAD_LOCAL_CONFIG
+              value: >
+                  {
+                    "bind_addr": "0.0.0.0",
+                    "server": {
+                      "enabled": true,
+                      "bootstrap_expect": 1
+                    },
+                    "data_dir": "/nomad/data/",
+                    "enable_debug": true,
+                    "log_level": "DEBUG",
+                    "consul": {
+                      "address": "consul:8500"
+                    },
+                    "vault": {
+                      "enabled": true,
+                      "address": "http://vault:8200"
+                    }
+                  }
+          ports:
+            - name: http
+              containerPort: 4646
+            - name: rpc
+              containerPort: 4647
+          volumeMounts:
+            - mountPath: /var/run/docker.sock
+              name: docker-sock
+      volumes:
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock

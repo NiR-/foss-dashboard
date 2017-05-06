@@ -1,8 +1,35 @@
-version: '2'
+version: '2.1'
 
 services:
+  issue-api:
+    extends: { file: ../services/common.yml, service: issue-api }
+    command: ["npm", "run", "dev-http"]
+    depends_on:
+      mongodb: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
+    volumes:
+      - "../services/issue-api/:/usr/src/app/"
+
+  issue-worker:
+    extends: { file: ../services/common.yml, service: issue-worker }
+    command: ["npm", "run", "dev-worker"]
+    depends_on:
+      mongodb: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
+    volumes:
+      - "../services/issue-api/:/usr/src/app/"
+
   repo-api:
     extends: { file: ../services/common.yml, service: repo-api }
     command: ["npm", "run", "dev-app"]
+    depends_on:
+      mongodb: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
     volumes:
-      - '../services/repo-api/:/usr/src/app'
+      - "../services/repo-api/:/usr/src/app"
+
+  front:
+    extends: { file: ../services/common.yml, service: front }
+    command: ["npm", "run", "dev"]
+    volumes:
+      - "../services/front/:/usr/src/app"

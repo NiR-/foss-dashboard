@@ -1,4 +1,5 @@
 http_port: HTTP_PORT
+mongo_uri: MONGO_URI
 
 redis:
   host: REDIS_HOST
@@ -9,3 +10,11 @@ github:
   user_agent: GITHUB_UA
   oauth_key: GITHUB_KEY
   oauth_secret: GITHUB_SECRET
+
+amqp:
+    host: AMQP_HOST
+    port: AMQP_PORT
+    login: AMQP_USER
+    password: AMQP_PASS
+    vhost: AMQP_VHOST
+    connectionTimeout: AMQP_TIMEOUT

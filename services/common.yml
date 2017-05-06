@@ -1,6 +1,43 @@
-version: '2'
+version: '2.1'
 
 services:
+  issue-api:
+    build: issue-api
+    env_file: issue-api/.env
+    expose:
+      - 80
+    labels:
+      - SERVICE_IGNORE=true
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.frontend.rule=PathPrefix:/issue
+      - traefik.weight=10
+
+  issue-worker:
+    build: issue-api
+    env_file: issue-api/.env
+    labels:
+      - SERVICE_IGNORE=true
+      - traefik.enable=false
+
   repo-api:
     build: repo-api
     env_file: repo-api/.env
+    expose:
+      - 80
+    labels:
+      - SERVICE_IGNORE=true
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.frontend.rule=PathPrefix:/repo
+      - traefik.weight=10
+
+  front:
+    build: front
+    expose:
+      - 8080
+    labels:
+      - SERVICE_IGNORE=true
+      - traefik.enable=true
+      - traefik.port=8080
+      - traefik.frontend.rule=PathPrefix:/

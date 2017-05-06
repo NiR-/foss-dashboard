@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: vault
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: vault
+  template:
+    metadata:
+      labels:
+        name: vault
+    spec:
+      containers:
+        - name: vault
+          image: vault:0.6.4
+          args: ["server", "-dev"]
+          securityContext:
+            capabilities:
+              add:
+                - IPC_LOCK
+          env:
+            - name: VAULT_DEV_ROOT_TOKEN_ID
+              value: root_token
+          ports:
+            - name: http
+              containerPort: 8200

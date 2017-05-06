@@ -1,0 +1,9 @@
+apps:
+  - script: bin/http.js
+    name: issue-api
+    exec_mode: cluster
+    instances: 1
+  - script: bin/worker.js
+    name: issue-worker
+    exec_mode: cluster
+    instances: 1

@@ -12,15 +12,38 @@ import _ from 'underscore';
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     [
- *       "KnpLabs/dmFloodControlPlugin",
- *       "KnpLabs/knpDoctrineVersionPlugin",
- *       "KnpLabs/knpDeployPlugin",
- *       "KnpLabs/KnpUserBundle",
- *       "KnpLabs/KnpMarkdownBundle",
- *       "KnpLabs/knpLocaleAwareNumberPlugin",
- *       "KnpLabs/snappy",
- *       "KnpLabs/KnpBundles",
- *       "KnpLabs/KnpSnappyBundle"
+ *       {
+ *         "openPRs": "33",
+ *         "description": "PHP5 library that provides a filesystem abstraction layer − will be a feast for your files!",
+ *         "stargazers": "1752",
+ *         "openIssues": "103",
+ *         "fullName": "KnpLabs/Gaufrette",
+ *         "deprecated": "false",
+ *         "coc": "false",
+ *         "readme": "true",
+ *         "license": "false",
+ *         "name": "Gaufrette",
+ *         "owner": "KnpLabs",
+ *         "changelog": "false",
+ *         "id": "1267753"
+ *       },
+ *     [
+ *       {
+ *         "openPRs": "33",
+ *         "description": "",
+ *         "stargazers": "1752",
+ *         "openIssues": "103",
+ *         "fullName": "KnpLabs/snappy",
+ *         "deprecated": "false",
+ *         "coc": "false",
+ *         "readme": "true",
+ *         "license": "false",
+ *         "name": "snappy",
+ *         "owner": "KnpLabs",
+ *         "changelog": "false",
+ *         "id": "1267753"
+ *       },
+ *       // ...
  *     ]
  */
 export const action = {

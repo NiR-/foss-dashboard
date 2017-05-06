@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: graphite-statsd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: graphite-statsd
+  template:
+    metadata:
+      labels:
+        name: graphite-statsd
+    spec:
+      containers:
+        - name: graphite-statsd
+          image: hopsoft/graphite-statsd
+

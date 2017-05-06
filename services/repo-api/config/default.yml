@@ -1,11 +1,20 @@
 http_port: 8080
+mongo_uri: mongodb://localhost:27017/repo-api
 
 redis:
   host: localhost
   port: 6379
 
 github:
-  timeout: 10000
+  timeout: 30000
   user_agent: 'Local GitBot'
-  oauth_key: 
+  oauth_key:
   oauth_secret:
+
+amqp:
+    host: localhost
+    port: 5672
+    login: guest
+    password: guest
+    connectionTimeout: 1000
+    vhost: /

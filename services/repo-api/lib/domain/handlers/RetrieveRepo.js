@@ -1,9 +1,9 @@
-import {RedisStore} from '../../services';
+import {MongoStore} from '../../services';
 import {RepoNotFoundError} from '../errors';
 
 export default async function handle (command) {
   const {fullName} = command;
-  const repo = await RedisStore.fetchRepo(fullName);
+  const repo = await MongoStore.getRepo(fullName);
 
   if (repo === null) {
     throw new RepoNotFoundError(fullName);

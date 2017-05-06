@@ -3,7 +3,9 @@
 docker/
 docs/
 node_modules/
+services/front/
 services/repo-api/node_modules/
+services/issue-api/node_modules/
 .dockerignore
 .gitignore
 fig

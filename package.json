@@ -9,7 +9,7 @@
     "nodemon": "^1.11.0"
   },
   "apidoc": {
-    "name": "OS Dashboard",
+    "name": "FOSS Dashboard",
     "version": "0.1.0",
     "url": "http://localhost",
     "sampleUrl": "http://localhost"
@@ -17,5 +17,6 @@
   "scripts": {
     "generate-docs": "./node_modules/.bin/apidoc -i services/repo-api/lib -o docs",
     "dev-generate-docs": "./node_modules/.bin/nodemon --verbose --ext js --ignore docs --exec npm run generate-docs"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: consul-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: consul
+  template:
+    metadata:
+      labels:
+        name: consul
+    spec:
+      containers:
+        - name: consul
+          image: consul:0.7.3
+          ports:
+            - name: http
+              containerPort: 8500

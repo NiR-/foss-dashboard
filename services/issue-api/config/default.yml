@@ -1,0 +1,23 @@
+http_port: 80
+consul_url: http://localhost:8500
+mongo_uri: mongodb://localhost:27017/issue-api
+amqp_uri: amqp://guest:guest@rabbitmq:5672/
+service_name: issue-api
+
+redis:
+  host: localhost
+  port: 6379
+
+github:
+  timeout: 30000
+  user_agent: 'Local GitBot'
+  oauth_key:
+  oauth_secret:
+
+amqp:
+  host: localhost
+  port: 5672
+  login: guest
+  password: guest
+  connectionTimeout: 1000
+  vhost: /

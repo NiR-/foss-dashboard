@@ -4,13 +4,11 @@ import bodyParser from 'body-parser';
 import router from './router';
 import errorHandler from './errorHandler';
 import {logger} from '../services';
-import redis from 'redis';
 import config from 'config';
 import helmet from 'helmet';
 
 export function createServer () {
   const server = express();
-  const redisClient = redis.createClient(config.redis);
 
   server.use(helmet());
   server.use(morgan('combined'));

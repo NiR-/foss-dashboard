@@ -8,14 +8,20 @@ export const responder = {
 }
 
 function jsonFormat (req, res) {
-  res.status(200).json(res.result);
+  const repo = getRepresentation(res.result);
+
+  res.status(200).json(repo);
 }
 
 function halFormat (req, res) {
   const repo = res.result;
-  const hal = halson(repo)
+  const hal = halson(getRepresentation(repo))
     .addLink('self', getUrl(req.action, req.params))
   ;
 
   res.status(200).json(hal);
+}
+
+function getRepresentation ({owner, name, fullName, description, deprecated, stargazers}) {
+  return {owner, name, fullName, description, deprecated, stargazers};
 }

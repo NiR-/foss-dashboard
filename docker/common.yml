@@ -1,12 +1,31 @@
-version: '2'
+version: '2.1'
 
 services:
-  nginx:
-    build: nginx
-    mem_limit: 128m
+  mongodb:
+    build: mongodb
+    labels:
+      - SERVICE_27017_NAME=mongodb
+      - SERVICE_28017_IGNORE=true
+
+  rabbitmq:
+    build: rabbitmq
+    labels:
+      - SERVICE_5672_NAME=rabbitmq
+      - SERVICE_15671_IGNORE=true
+      - SERVICE_15672_IGNORE=true
+      - SERVICE_25672_IGNORE=true
+      - SERVICE_4369_IGNORE=true
+      - SERVICE_5671_IGNORE=true
+      - traefik.enable=true
+      - traefik.port=15672
+      - traefik.frontend.rule=Host:rabbitmq.localhost
+
+  traefik:
+    build: traefik
+    mem_limit: 128M
     ports:
       - "80:80"
-
-  redis:
-    build: redis
-    mem_limit: 128m
+    labels:
+      - SERVICE_IGNORE=true
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"

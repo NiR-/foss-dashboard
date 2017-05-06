@@ -1,0 +1,15 @@
+---
+bootstrapVersion: 4
+useFlexbox: true
+
+styleLoaders:
+  - style-loader
+  - css-loader
+  - postcss-loader
+  - sass-loader
+
+styles: true
+
+scripts:
+  dropdown: true
+  util: true
